@@ -12,10 +12,9 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import markdown from 'vite-plugin-vue-markdown';
 import svgLoader from 'vite-svg-loader';
 import { configDefaults } from 'vitest/config';
-
+import markdown from 'unplugin-vue-markdown/vite';
 const baseUrl = process.env.BASE_URL ?? '/';
 
 // https://vitejs.dev/config/
@@ -23,13 +22,11 @@ export default defineConfig({
   plugins: [
     VueI18n({
       runtimeOnly: true,
-      jitCompilation: true,
+      // jitCompilation: true,
       compositionOnly: true,
       fullInstall: true,
       strictMessage: false,
-      include: [
-        resolve(__dirname, 'locales/**'),
-      ],
+      include: [resolve(__dirname, 'locales/**')],
     }),
     AutoImport({
       imports: [
@@ -51,11 +48,14 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
     }),
     vueJsx(),
-    markdown(),
+    markdown({}),
     svgLoader(),
     VitePWA({
       registerType: 'autoUpdate',
       strategies: 'generateSW',
+      workbox: {
+        maximumFileSizeToCacheInBytes: 1024 * 1024 * 10,
+      },
       manifest: {
         name: 'IT Tools',
         description: 'Aggregated set of useful tools for developers.',
