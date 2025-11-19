@@ -1,0 +1,1 @@
+import{cb as o}from"./index-Br2O5Rg4.js";function i(t){return t instanceof Date||typeof t=="object"&&Object.prototype.toString.call(t)==="[object Date]"}function s(t){return!(!i(t)&&typeof t!="number"||isNaN(+o(t)))}function c(t,n){const a=t<0?"-":"",e=Math.abs(t).toString().padStart(n,"0");return a+e}function f(t){return+o(t)}export{c as a,i as b,f as g,s as i};
