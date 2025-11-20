@@ -24,6 +24,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && cross-env NODE_OPTIONS=--max_old_space_size=4096 vite build",
+    "build:hash": "cross-env VITE_ROUTER_MODE=hash pnpm build",
+    "build:gh-pages": "cross-env BASE_URL=/it-tools/ pnpm build:hash",
     "preview": "vite preview --port 5050",
     "test": "npm run test:unit",
     "test:unit": "vitest --environment jsdom",
