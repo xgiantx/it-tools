@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { compareSync, hashSync } from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import { useThemeVars } from 'naive-ui';
 import { useCopy } from '@/composable/copy';
+
+const { compareSync, hashSync } = bcrypt;
 
 const themeVars = useThemeVars();
 

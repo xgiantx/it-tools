@@ -42,7 +42,7 @@ describe('json-to-csv service', () => {
 
     it('when a value is null, it is converted to the string "null"', () => {
       const array = [
-        { a: null, b: 2 },
+        { a: null as any, b: 2 },
       ];
 
       expect(convertArrayToCsv({ array })).toMatchInlineSnapshot(`
@@ -53,7 +53,7 @@ describe('json-to-csv service', () => {
 
     it('when a value is undefined, it is converted to an empty string', () => {
       const array = [
-        { a: undefined, b: 2 },
+        { a: undefined as any, b: 2 },
         { b: 3 },
       ];
 

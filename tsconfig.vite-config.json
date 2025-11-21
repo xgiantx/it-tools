@@ -1,8 +1,14 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
   "include": ["vite.config.*"],
   "compilerOptions": {
+    "lib": ["ESNext"],
+    "strict": true,
+    "strictNullChecks": false,
+    "skipLibCheck": true,
+    "target": "esnext",
+    "module": "esnext",
     "composite": true,
-    "types": ["node", "vitest"]
+    "types": ["vitest"],
+    "moduleResolution": "bundler"
   }
 }

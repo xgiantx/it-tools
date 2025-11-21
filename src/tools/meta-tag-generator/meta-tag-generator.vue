@@ -1,8 +1,9 @@
 <script setup lang="ts">
+// @ts-expect-error: The type definition for generateMeta is not available in the package.
 import { generateMeta } from '@it-tools/oggen';
 import _ from 'lodash';
 import { image, ogSchemas, twitter, website } from './og-schemas';
-import type { OGSchemaType, OGSchemaTypeElementSelect } from './OGSchemaType.type';
+import type { OGSchemaType } from './OGSchemaType.type';
 import TextareaCopyable from '@/components/TextareaCopyable.vue';
 
 // Since type guards do not work in template
@@ -77,7 +78,7 @@ const metaTags = computed(() => {
           v-model:value="metadata[key]"
           w-full
           :placeholder="placeholder"
-          :options="(element as OGSchemaTypeElementSelect).options"
+          :options="(element as any).options"
         />
       </n-input-group>
     </div>

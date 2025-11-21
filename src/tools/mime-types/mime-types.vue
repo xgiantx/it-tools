@@ -13,9 +13,9 @@ const extensionToMimeTypeOptions = Object.keys(extensionToMimeType).map((label) 
 
   return { label: extension, value: label };
 });
-const selectedExtension = ref(undefined);
+const selectedExtension = ref<string>(undefined);
 
-const mimeTypeFound = computed(() => (selectedExtension.value ? extensionToMimeType[selectedExtension.value] : []));
+const mimeTypeFound = computed(() => (selectedExtension.value ? extensionToMimeType[selectedExtension.value] : [] as string[]));
 </script>
 
 <template>

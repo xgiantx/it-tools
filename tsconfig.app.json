@@ -3,10 +3,12 @@
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "**/*.d.ts", "node_modules/vite-plugin-pwa/client.d.ts"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
-    "lib": ["ES2022"],
-    "target": "es2022",
-    "module": "es2022",
-    "moduleResolution": "Node",
+    "strict": true,
+    "strictNullChecks": false,
+    "lib": ["ESNext"],
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "composite": true,
     "baseUrl": ".",
     "paths": {

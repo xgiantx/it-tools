@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { type Ref } from 'vue';
 import { useAppTheme } from '../theme/themes';
 import { useTheme } from './c-input-text.theme';
 import { generateRandomId } from '@/utils/random';
@@ -64,7 +65,25 @@ const emit = defineEmits(['update:value']);
 const value = useVModel(props, 'value', emit);
 const showPassword = ref(false);
 
-const { id, placeholder, label, validationRules, labelPosition, labelWidth, labelAlign, autosize, readonly, disabled, clearable, type, multiline, rows, rawText, autofocus, monospace } = toRefs(props);
+const {
+  id,
+  placeholder,
+  label,
+  validationRules,
+  labelPosition,
+  labelWidth,
+  labelAlign,
+  autosize,
+  readonly,
+  disabled,
+  clearable,
+  type,
+  multiline,
+  rows,
+  rawText,
+  autofocus,
+  monospace,
+} = toRefs(props);
 
 const validation
   = props.validation
@@ -83,11 +102,12 @@ const inputWrapperRef = ref<HTMLElement>();
 
 watch(
   [value, autosize, multiline, inputWrapperRef, textareaRef],
-  () => nextTick(() => {
-    if (props.multiline && autosize.value) {
-      resizeTextarea();
-    }
-  }),
+  () =>
+    nextTick(() => {
+      if (props.multiline && autosize.value) {
+        resizeTextarea();
+      }
+    }),
   { immediate: true },
 );
 
